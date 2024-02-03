@@ -1,5 +1,11 @@
 <template>
-  <header class="w-full text-sm">
+  <header
+    :class="[
+      'w-full',
+      'text-sm',
+      headerHighetClass,
+    ]"
+  >
     <div
       class="fixed left-0 top-0 h-16 w-full bg-white"
     >
@@ -46,7 +52,7 @@
 </template>
 
 <script>
-import ActionButton from './ActionButton.vue'
+import ActionButton from '../Shared/ActionButton.vue'
 import ProfileImage from './ProfileImage.vue'
 import TheSubnav from './TheSubnav.vue'
 
@@ -71,6 +77,15 @@ export default {
       ],
       isLoggedIn: false,
     }
+  },
+  computed: {
+    // TODO: Find a better fix for this using only tailwind classes
+    headerHighetClass() {
+      return {
+        'h-16': !this.isLoggedIn,
+        'h-32': this.isLoggedIn,
+      }
+    },
   },
   methods: {
     loginUser() {

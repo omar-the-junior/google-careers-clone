@@ -2,10 +2,7 @@ import {
   render,
   screen,
 } from '@testing-library/vue'
-import TheSubnav from '@/components/TheSubnav.vue'
-import { describe } from 'vitest'
-import { it } from 'vitest'
-import { expect } from 'vitest'
+import TheSubnav from '@/components/Navigation/TheSubnav.vue'
 describe('TheSubnav', () => {
   describe('Whe user is on jobs page', () => {
     it('displays job count', () => {

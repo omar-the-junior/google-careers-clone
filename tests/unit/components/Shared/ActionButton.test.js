@@ -1,10 +1,9 @@
-import ActionButton from '@/components/ActionButton.vue'
+import ActionButton from '@/components/Shared/ActionButton.vue'
 import {
   render,
   screen,
 } from '@testing-library/vue'
-import { it } from 'vitest'
-import { expect } from 'vitest'
+
 describe('ActionButton', () => {
   it('renders text', () => {
     render(ActionButton, {
