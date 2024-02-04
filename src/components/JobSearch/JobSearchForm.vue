@@ -1,6 +1,6 @@
 <template>
   <form
-    class="border-brand-gray-3 flex h-12 w-full items-center rounded-3xl border border-solid"
+    class="flex h-12 w-full items-center rounded-3xl border border-solid border-brand-gray-3"
   >
     <font-awesome-icon
       :icon="['fas', 'search']"
@@ -17,17 +17,15 @@
           class="absolute -top-10 left-0"
           >Role</label
         >
-        <input
+        <text-input
           id="role"
           v-model="role"
-          type="text"
           placeholder="Software engineer"
-          class="w-full text-lg font-normal focus:outline-none"
         />
       </div>
 
       <span
-        class="border-brand-gray-3 bg-brand-gray-2 flex h-full items-center border-l border-r px-3"
+        class="flex h-full items-center border-l border-r border-brand-gray-3 bg-brand-gray-2 px-3"
         >in</span
       >
       <div
@@ -38,13 +36,10 @@
           class="absolute -top-10 left-0"
           >Where?</label
         >
-        <input
+        <text-input
           id="location"
           v-model="location"
-          type="text"
           placeholder="Los Angeles"
-          class="w-full text-lg font-normal focus:outline-none"
-          @input="location = $event.target.value"
         />
       </div>
     </div>
@@ -58,10 +53,12 @@
 
 <script>
 import ActionButton from '../Shared/ActionButton.vue'
+import TextInput from '../Shared/TextInput.vue'
 export default {
   name: 'JobSearchForm',
   components: {
     ActionButton,
+    TextInput,
   },
   data() {
     return {
