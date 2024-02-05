@@ -8,11 +8,21 @@ This project is a clone of the [Google Careers website](https://careers.google.c
 pnpm install
 ```
 
-### Compile and Hot-Reload for Development
+### Start Development Environment
+
+#### 1. Run the mock backend server in a separate terminal
+
+```sh
+pnpm run backend
+```
+
+#### 2. Start the development server
 
 ```sh
 pnpm run dev
 ```
+
+---
 
 ### Compile and Minify for Production
 
@@ -20,11 +30,15 @@ pnpm run dev
 pnpm run build
 ```
 
+---
+
 ### Run Unit Tests with [Vitest](https://vitest.dev/)
 
 ```sh
 pnpm run test:unit
 ```
+
+---
 
 ### Lint with [ESLint](https://eslint.org/)
 
