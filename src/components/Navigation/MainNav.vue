@@ -12,23 +12,24 @@
       <div
         class="mx-auto flex h-full flex-nowrap border-b border-solid border-brand-gray-1 px-8"
       >
-        <a
-          :href="url"
+        <router-link
+          :to="{ name: 'Home' }"
           class="flex h-full items-center text-xl"
-          >{{ company }}</a
         >
+          Google Careers
+        </router-link>
 
         <nav class="ml-12 h-full">
           <ul class="flex h-full list-none">
             <li
               v-for="menuItem in menuItems"
-              :key="menuItem"
+              :key="menuItem.text"
               class="ml-9 h-full first:ml-0"
             >
-              <a
-                href=""
+              <router-link
+                :to="menuItem.url"
                 class="flex h-full items-center py-2.5"
-                >{{ menuItem }}</a
+                >{{ menuItem.text }}</router-link
               >
             </li>
           </ul>
@@ -65,15 +66,13 @@ export default {
   },
   data() {
     return {
-      company: 'Google Careers',
-      url: 'https://careers.google.com',
       menuItems: [
-        'Teams',
-        'Locations',
-        'Life at Google Corp',
-        'How we hire',
-        'Students',
-        'Jobs',
+        { text: 'Teams', url: '/' },
+        { text: 'Locations', url: '/' },
+        { text: 'Life at Google Corp', url: '/' },
+        { text: 'How we hire', url: '/' },
+        { text: 'Students', url: '/' },
+        { text: 'Jobs', url: '/jobs/results' },
       ],
       isLoggedIn: false,
     }

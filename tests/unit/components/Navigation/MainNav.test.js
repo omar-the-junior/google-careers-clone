@@ -5,13 +5,22 @@ import {
 
 import MainNav from '@/components/Navigation/MainNav.vue'
 import userEvent from '@testing-library/user-event'
+import { RouterLinkStub } from '@vue/test-utils'
 
 describe('MainNav', () => {
   const renderMainNav = () => {
+    const $route = {
+      name: 'Home',
+    }
+
     render(MainNav, {
       global: {
+        mocks: {
+          $route,
+        },
         stubs: {
           FontAwesomeIcon: true,
+          RouterLink: RouterLinkStub,
         },
       },
     })
@@ -46,13 +55,7 @@ describe('MainNav', () => {
 
   describe('When the user logs in', () => {
     it('displays user profile picture', async () => {
-      render(MainNav, {
-        global: {
-          stubs: {
-            FontAwesomeIcon: true,
-          },
-        },
-      })
+      renderMainNav()
       let profileImage = screen.queryByRole(
         'img',
         {
