@@ -42,7 +42,7 @@
           <action-button
             v-else
             text="Sign in"
-            @click="loginUser"
+            @click="login"
           />
         </div>
       </div>
@@ -53,10 +53,11 @@
 </template>
 
 <script>
+import { mapActions, mapState } from 'pinia'
+import { useUserStore } from '@/stores/user'
 import ActionButton from '../Shared/ActionButton.vue'
 import ProfileImage from './ProfileImage.vue'
 import TheSubnav from './TheSubnav.vue'
-
 export default {
   name: 'MainNav',
   components: {
@@ -74,10 +75,10 @@ export default {
         { text: 'Students', url: '/' },
         { text: 'Jobs', url: '/jobs/results' },
       ],
-      isLoggedIn: false,
     }
   },
   computed: {
+    ...mapState(useUserStore, ['isLoggedIn']),
     // TODO: Find a better fix for this using only tailwind classes
     headerHighetClass() {
       return {
@@ -87,9 +88,7 @@ export default {
     },
   },
   methods: {
-    loginUser() {
-      this.isLoggedIn = true
-    },
+    ...mapActions(useUserStore, ['login']),
   },
 }
 </script>

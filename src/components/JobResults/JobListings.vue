@@ -93,8 +93,10 @@ export default {
     },
   },
   async mounted() {
+    const baseUrl = import.meta.env
+      .VITE_APP_API_URL
     const response = await axios.get(
-      'http://localhost:3000/jobs'
+      `${baseUrl}/jobs`
     )
     this.jobs = response.data
   },

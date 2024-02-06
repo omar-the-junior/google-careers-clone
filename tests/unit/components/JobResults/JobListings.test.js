@@ -35,7 +35,7 @@ describe('JobListings', () => {
     const route = createRoute()
     renderJobListings(route)
     expect(axios.get).toHaveBeenCalledWith(
-      'http://localhost:3000/jobs'
+      `http://myfakeapi.com/jobs`
     )
   })
 
