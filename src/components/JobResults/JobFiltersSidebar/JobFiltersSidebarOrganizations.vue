@@ -3,52 +3,23 @@
     <div class="mt-5">
       <fieldset>
         <ul class="flex flex-row flex-wrap">
-          <li class="h-8 w-1/2">
+          <li
+            v-for="organization in uniqueOrganizations"
+            :key="organization"
+            class="h-8 w-1/2"
+          >
             <input
-              id="VueTube"
+              :id="organization"
+              v-model="selectedOrganizations"
+              :value="organization"
               type="checkbox"
               class="mr-3"
+              @change="selectOrganization"
             />
             <label
-              for="VueTube"
+              :for="organization"
               class="cursor-pointer"
-              >Vue tube</label
-            >
-          </li>
-          <li class="h-8 w-1/2">
-            <input
-              id="Between Vue and Me"
-              type="checkbox"
-              class="mr-3"
-            />
-            <label
-              for="Between Vue and Me"
-              class="cursor-pointer"
-              >Between vue</label
-            >
-          </li>
-          <li class="h-8 w-1/2">
-            <input
-              id="Vue Brute"
-              type="checkbox"
-              class="mr-3"
-            />
-            <label
-              for="Vue Brute"
-              class="cursor-pointer"
-              >Vue Brute</label
-            >
-          </li>
-          <li class="h-8 w-1/2">
-            <input
-              id="Vue and a Half men"
-              type="checkbox"
-              class="mr-3"
-            />
-            <label
-              for="Vue and a Half men"
-              class="cursor-pointer"
-              >Vue and a half men</label
+              >{{ organization }}</label
             >
           </li>
         </ul>
@@ -59,11 +30,35 @@
 
 <script>
 import CollapsibleAccordion from '@/components/Shared/CollapsibleAccordion.vue'
+import { mapState, mapActions } from 'pinia'
+
+import { useJobsStore } from '@/stores/jobs'
+import { useUserStore } from '@/stores/user'
 
 export default {
   name: 'JobFiltersSidebarOrganizations',
   components: {
     CollapsibleAccordion,
+  },
+  data() {
+    return {
+      selectedOrganizations: [],
+    }
+  },
+  computed: {
+    ...mapState(useJobsStore, [
+      'uniqueOrganizations',
+    ]),
+  },
+  methods: {
+    ...mapActions(useUserStore, [
+      'addSelectedOrganization',
+    ]),
+    selectOrganization() {
+      this.addSelectedOrganization(
+        this.selectedOrganizations
+      )
+    },
   },
 }
 </script>

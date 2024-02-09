@@ -13,6 +13,13 @@ describe('state', () => {
     const store = useUserStore()
     expect(store.isLoggedIn).toBe(false)
   })
+
+  it('stores organizations that the user would like to filter jobs by', () => {
+    const store = useUserStore()
+    expect(store.selectedOrganizations).toEqual(
+      []
+    )
+  })
 })
 
 describe('actions', () => {
@@ -21,6 +28,21 @@ describe('actions', () => {
       const store = useUserStore()
       store.login()
       expect(store.isLoggedIn).toBe(true)
+    })
+  })
+
+  describe('addSelectedOrganization', () => {
+    it('updates organizations the user has chosen to filter jobs by', () => {
+      const store = useUserStore()
+
+      store.addSelectedOrganization([
+        'Organization 1',
+        'Organization 2',
+      ])
+
+      expect(store.selectedOrganizations).toEqual(
+        ['Organization 1', 'Organization 2']
+      )
     })
   })
 })
