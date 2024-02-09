@@ -1,4 +1,18 @@
 {
+  "spotlights": [
+    {
+      "id": 1,
+      "img": "https://images.unsplash.com/photo-1556075798-4825dfaaf498",
+      "title": "Cloud Engineering",
+      "description": "Build fun stuff in the cloud. It's a lot of fun, we promise!"
+    },
+    {
+      "id": 2,
+      "img": "https://images.unsplash.com/photo-1511376777868-611b54f68947",
+      "title": "Executive Leadership",
+      "description": "Be a leader for everyone. Leadership builds character."
+    }
+  ],
   "jobs": [
     {
       "id": 1,
@@ -57,7 +71,12 @@
       "organization": "Vue Can Do It",
       "degree": "Ph.D.",
       "jobType": "Full-time",
-      "locations": ["Yokohama", "The Hague", "Stockholm", "Ottawa"],
+      "locations": [
+        "Yokohama",
+        "The Hague",
+        "Stockholm",
+        "Ottawa"
+      ],
       "minimumQualifications": [
         "Expedite cross-platform initiatives, empower user-centric models, and revolutionize bleeding-edge e-tailers",
         "Incubate bricks-and-clicks supply-chains, empower B2B mindshare, and extend integrated functionalities",
@@ -133,7 +152,11 @@
       "organization": "Point of Vue",
       "degree": "Associate",
       "jobType": "Temporary",
-      "locations": ["Glasgow", "Leipzig", "Québec"],
+      "locations": [
+        "Glasgow",
+        "Leipzig",
+        "Québec"
+      ],
       "minimumQualifications": [
         "Enable interactive users, empower cutting-edge metrics, and engineer dynamic e-markets",
         "Cultivate 24/7 e-commerce, extend magnetic ROI, and empower bleeding-edge web services",
@@ -157,7 +180,11 @@
       "organization": "Vue Can Do It",
       "degree": "Master's",
       "jobType": "Temporary",
-      "locations": ["Essen", "Detroit", "Buffalo"],
+      "locations": [
+        "Essen",
+        "Detroit",
+        "Buffalo"
+      ],
       "minimumQualifications": [
         "Reinvent plug-and-play methodologies, engage impactful relationships, and synergize front-end technologies",
         "Transition integrated infrastructures, mesh visionary systems, and implement synergistic synergies",
@@ -257,7 +284,12 @@
       "organization": "Vue and a Half Men",
       "degree": "Ph.D.",
       "jobType": "Part-time",
-      "locations": ["Kuala Lumpur", "Berlin", "Albuquerque", "Nagoya"],
+      "locations": [
+        "Kuala Lumpur",
+        "Berlin",
+        "Albuquerque",
+        "Nagoya"
+      ],
       "minimumQualifications": [
         "Harness transparent info-mediaries, empower granular ROI, and enhance scalable solutions",
         "Aggregate holistic e-tailers, e-enable leading-edge e-markets, and e-enable dynamic metrics",
@@ -333,7 +365,12 @@
       "organization": "Et Vue Brute",
       "degree": "Pursuing Degree",
       "jobType": "Part-time",
-      "locations": ["Medellin", "Los Angeles", "Tokyo", "El Paso"],
+      "locations": [
+        "Medellin",
+        "Los Angeles",
+        "Tokyo",
+        "El Paso"
+      ],
       "minimumQualifications": [
         "Syndicate mission-critical portals, optimize sticky content, and re-contextualize frictionless architectures",
         "Synthesize distributed deliverables, incentivize front-end info-mediaries, and synthesize bricks-and-clicks supply-chains",
@@ -358,7 +395,12 @@
       "organization": "VueTube",
       "degree": "Master's",
       "jobType": "Temporary",
-      "locations": ["Prague", "Kuala Lumpur", "Buffalo", "Liverpool"],
+      "locations": [
+        "Prague",
+        "Kuala Lumpur",
+        "Buffalo",
+        "Liverpool"
+      ],
       "minimumQualifications": [
         "Monetize impactful methodologies, enable clicks-and-mortar relationships, and grow innovative interfaces",
         "Transition rich content, visualize innovative niches, and repurpose magnetic metrics",
@@ -384,7 +426,12 @@
       "organization": "VueTube",
       "degree": "Associate",
       "jobType": "Intern",
-      "locations": ["Providence", "St Louis", "Bangkok", "Napoli (Naples)"],
+      "locations": [
+        "Providence",
+        "St Louis",
+        "Bangkok",
+        "Napoli (Naples)"
+      ],
       "minimumQualifications": [
         "Transform revolutionary functionalities, strategize best-of-breed schemas, and maximize bricks-and-clicks channels",
         "Disintermediate b2b web-readiness, expedite magnetic markets, and envisioneer out-of-the-box systems",
@@ -435,7 +482,12 @@
       "organization": "Vue and Me",
       "degree": "Associate",
       "jobType": "Part-time",
-      "locations": ["San Francisco", "Abu Dhabi", "Boulder", "Tokyo"],
+      "locations": [
+        "San Francisco",
+        "Abu Dhabi",
+        "Boulder",
+        "Tokyo"
+      ],
       "minimumQualifications": [
         "Incubate next-generation models, transition real-time schemas, and maximize bricks-and-clicks supply-chains",
         "Repurpose distributed roi, envisioneer viral experiences, and scale user-centric networks",
@@ -459,7 +511,12 @@
       "organization": "VueTube",
       "degree": "Pursuing Degree",
       "jobType": "Temporary",
-      "locations": ["Fort Lauderdale", "Chicago", "Bilbao", "Perth"],
+      "locations": [
+        "Fort Lauderdale",
+        "Chicago",
+        "Bilbao",
+        "Perth"
+      ],
       "minimumQualifications": [
         "Benchmark vertical niches, transform B2C e-business, and streamline synergistic web services",
         "Embrace customized supply-chains, empower ubiquitous methodologies, and extend sticky communities",
@@ -631,7 +688,11 @@
       "organization": "VueTube",
       "degree": "Associate",
       "jobType": "Temporary",
-      "locations": ["Abu Dhabi", "Salt Lake City", "Santiago"],
+      "locations": [
+        "Abu Dhabi",
+        "Salt Lake City",
+        "Santiago"
+      ],
       "minimumQualifications": [
         "Mesh user-centric e-commerce, productize open-source vortals, and architect efficient e-business",
         "Integrate collaborative metrics, scale out-of-the-box channels, and synthesize web-enabled functionalities",
@@ -705,7 +766,11 @@
       "organization": "VueTube",
       "degree": "Ph.D.",
       "jobType": "Full-time",
-      "locations": ["Fort Lauderdale", "Budapest", "Vancouver"],
+      "locations": [
+        "Fort Lauderdale",
+        "Budapest",
+        "Vancouver"
+      ],
       "minimumQualifications": [
         "Embrace killer initiatives, syndicate world-class vortals, and enhance enterprise users",
         "Generate revolutionary partnerships, disintermediate next-generation e-commerce, and leverage visionary users",
@@ -804,7 +869,11 @@
       "organization": "Vue and a Half Men",
       "degree": "Pursuing Degree",
       "jobType": "Part-time",
-      "locations": ["Cologne", "Atlanta", "Milwaukee"],
+      "locations": [
+        "Cologne",
+        "Atlanta",
+        "Milwaukee"
+      ],
       "minimumQualifications": [
         "Target seamless relationships, orchestrate best-of-breed markets, and syndicate enterprise markets",
         "Enhance seamless solutions, evolve dynamic schemas, and mesh virtual communities",
@@ -829,7 +898,12 @@
       "organization": "Vue Can Do It",
       "degree": "Ph.D.",
       "jobType": "Part-time",
-      "locations": ["Seattle", "Paris", "Memphis", "Louisville"],
+      "locations": [
+        "Seattle",
+        "Paris",
+        "Memphis",
+        "Louisville"
+      ],
       "minimumQualifications": [
         "Monetize world-class e-business, integrate B2B schemas, and expedite revolutionary technologies",
         "Repurpose end-to-end supply-chains, deploy cutting-edge interfaces, and re-contextualize cutting-edge communities",
@@ -854,7 +928,11 @@
       "organization": "Vue Can Do It",
       "degree": "Associate",
       "jobType": "Part-time",
-      "locations": ["Barcelona", "Montréal", "El Paso"],
+      "locations": [
+        "Barcelona",
+        "Montréal",
+        "El Paso"
+      ],
       "minimumQualifications": [
         "Streamline synergistic networks, revolutionize 24/7 eyeballs, and transform world-class functionalities",
         "Transform bleeding-edge models, transition transparent e-commerce, and drive mission-critical architectures",
@@ -879,7 +957,12 @@
       "organization": "Vue and Me",
       "degree": "Pursuing Degree",
       "jobType": "Temporary",
-      "locations": ["Albany", "Boulder", "Geneva", "Denver"],
+      "locations": [
+        "Albany",
+        "Boulder",
+        "Geneva",
+        "Denver"
+      ],
       "minimumQualifications": [
         "Embrace holistic communities, visualize wireless markets, and benchmark killer models",
         "Whiteboard back-end action-items, engage customized mindshare, and revolutionize 24/7 e-tailers",
@@ -927,7 +1010,11 @@
       "organization": "VueTube",
       "degree": "Master's",
       "jobType": "Temporary",
-      "locations": ["Toronto", "Perth", "Guangzhou"],
+      "locations": [
+        "Toronto",
+        "Perth",
+        "Guangzhou"
+      ],
       "minimumQualifications": [
         "Enable clicks-and-mortar users, enhance web-enabled e-services, and redefine web-enabled systems",
         "Orchestrate robust supply-chains, monetize compelling methodologies, and cultivate efficient metrics",
@@ -951,7 +1038,12 @@
       "organization": "Vue Can Do It",
       "degree": "Ph.D.",
       "jobType": "Part-time",
-      "locations": ["Sacramento", "Helsinki", "Paris", "Buffalo"],
+      "locations": [
+        "Sacramento",
+        "Helsinki",
+        "Paris",
+        "Buffalo"
+      ],
       "minimumQualifications": [
         "Brand distributed schemas, streamline innovative solutions, and revolutionize real-time models",
         "Whiteboard 24/365 functionalities, morph global bandwidth, and unleash vertical experiences",
@@ -976,7 +1068,11 @@
       "organization": "Vue Can Do It",
       "degree": "Associate",
       "jobType": "Part-time",
-      "locations": ["Salt Lake City", "Wellington", "Medellin"],
+      "locations": [
+        "Salt Lake City",
+        "Wellington",
+        "Medellin"
+      ],
       "minimumQualifications": [
         "Target 24/7 partnerships, unleash e-business channels, and engage back-end markets",
         "Maximize dynamic technologies, optimize bleeding-edge content, and generate rich models",
@@ -1076,7 +1172,12 @@
       "organization": "Vue and Me",
       "degree": "Ph.D.",
       "jobType": "Part-time",
-      "locations": ["Warsaw", "Houston", "Québec", "Budapest"],
+      "locations": [
+        "Warsaw",
+        "Houston",
+        "Québec",
+        "Budapest"
+      ],
       "minimumQualifications": [
         "Mesh transparent functionalities, streamline best-of-breed platforms, and reinvent seamless metrics",
         "Architect frictionless eyeballs, architect robust ROI, and productize out-of-the-box web-readiness",
@@ -1273,7 +1374,10 @@
       "organization": "Et Vue Brute",
       "degree": "Master's",
       "jobType": "Full-time",
-      "locations": ["Baltimore", "Napoli (Naples)"],
+      "locations": [
+        "Baltimore",
+        "Napoli (Naples)"
+      ],
       "minimumQualifications": [
         "Reinvent rich experiences, leverage distributed portals, and incentivize transparent infrastructures",
         "Benchmark vertical metrics, target collaborative architectures, and e-enable efficient synergies",
@@ -1298,7 +1402,12 @@
       "organization": "Point of Vue",
       "degree": "Associate",
       "jobType": "Full-time",
-      "locations": ["Buenos Aires", "Cincinnati", "Brussels", "Stuttgart"],
+      "locations": [
+        "Buenos Aires",
+        "Cincinnati",
+        "Brussels",
+        "Stuttgart"
+      ],
       "minimumQualifications": [
         "Mesh viral experiences, cultivate plug-and-play ROI, and re-contextualize cutting-edge relationships",
         "Exploit compelling roi, whiteboard dot-com e-commerce, and harness extensible networks",
@@ -1322,7 +1431,11 @@
       "organization": "Point of Vue",
       "degree": "Pursuing Degree",
       "jobType": "Intern",
-      "locations": ["Taipei", "Bangkok", "Portland"],
+      "locations": [
+        "Taipei",
+        "Bangkok",
+        "Portland"
+      ],
       "minimumQualifications": [
         "Utilize efficient partnerships, drive dot-com infrastructures, and re-contextualize bricks-and-clicks deliverables",
         "Evolve cutting-edge interfaces, synergize rich e-business, and whiteboard integrated networks",
@@ -1396,7 +1509,12 @@
       "organization": "Vue and Me",
       "degree": "Ph.D.",
       "jobType": "Full-time",
-      "locations": ["Brussels", "Leeds", "Honolulu", "Frankfurt"],
+      "locations": [
+        "Brussels",
+        "Leeds",
+        "Honolulu",
+        "Frankfurt"
+      ],
       "minimumQualifications": [
         "E-enable real-time technologies, productize intuitive partnerships, and iterate one-to-one portals",
         "Incentivize compelling deliverables, seize synergistic infrastructures, and re-contextualize seamless web-readiness",
@@ -1421,7 +1539,12 @@
       "organization": "Vue and a Half Men",
       "degree": "Associate",
       "jobType": "Temporary",
-      "locations": ["Memphis", "Budapest", "St Petersburg", "Munich"],
+      "locations": [
+        "Memphis",
+        "Budapest",
+        "St Petersburg",
+        "Munich"
+      ],
       "minimumQualifications": [
         "Target distributed networks, mesh seamless initiatives, and deploy efficient vortals",
         "Expedite compelling partnerships, envisioneer best-of-breed convergence, and productize magnetic web services",
@@ -1446,7 +1569,12 @@
       "organization": "Vue and a Half Men",
       "degree": "Associate",
       "jobType": "Part-time",
-      "locations": ["Helsinki", "Edinburgh", "The Hague", "Marseille"],
+      "locations": [
+        "Helsinki",
+        "Edinburgh",
+        "The Hague",
+        "Marseille"
+      ],
       "minimumQualifications": [
         "Drive best-of-breed models, maximize wireless metrics, and transition B2B systems",
         "Reinvent holistic metrics, re-intermediate synergistic info-mediaries, and streamline wireless e-commerce",
@@ -1496,7 +1624,11 @@
       "organization": "Vue and a Half Men",
       "degree": "Associate",
       "jobType": "Intern",
-      "locations": ["Indianapolis", "Seattle", "Las Vegas"],
+      "locations": [
+        "Indianapolis",
+        "Seattle",
+        "Las Vegas"
+      ],
       "minimumQualifications": [
         "Unleash e-business platforms, unleash best-of-breed networks, and productize impactful infrastructures",
         "Maximize turn-key content, re-intermediate killer action-items, and brand front-end initiatives",
@@ -1693,7 +1825,11 @@
       "organization": "VueTube",
       "degree": "Ph.D.",
       "jobType": "Part-time",
-      "locations": ["Osaka", "Amsterdam", "Vienna"],
+      "locations": [
+        "Osaka",
+        "Amsterdam",
+        "Vienna"
+      ],
       "minimumQualifications": [
         "Engineer 24/7 portals, syndicate 24/7 functionalities, and architect global ROI",
         "Grow real-time experiences, implement turn-key infrastructures, and re-intermediate innovative portals",
@@ -1717,7 +1853,11 @@
       "organization": "Vue and Me",
       "degree": "Pursuing Degree",
       "jobType": "Temporary",
-      "locations": ["Seoul", "Singapore", "Montréal"],
+      "locations": [
+        "Seoul",
+        "Singapore",
+        "Montréal"
+      ],
       "minimumQualifications": [
         "Benchmark cross-media portals, synergize innovative e-business, and seize clicks-and-mortar partnerships",
         "Syndicate b2c networks, engineer visionary markets, and incentivize holistic networks",
@@ -1818,7 +1958,10 @@
       "organization": "Point of Vue",
       "degree": "Bachelor's",
       "jobType": "Temporary",
-      "locations": ["Fort Lauderdale", "Liverpool"],
+      "locations": [
+        "Fort Lauderdale",
+        "Liverpool"
+      ],
       "minimumQualifications": [
         "Deploy granular applications, strategize e-business e-services, and innovate cutting-edge applications",
         "Orchestrate bricks-and-clicks e-markets, aggregate synergistic e-tailers, and maximize bleeding-edge solutions",
@@ -1843,7 +1986,11 @@
       "organization": "Vue and a Half Men",
       "degree": "Master's",
       "jobType": "Part-time",
-      "locations": ["Los Angeles", "Mexico City", "Fort Lauderdale"],
+      "locations": [
+        "Los Angeles",
+        "Mexico City",
+        "Fort Lauderdale"
+      ],
       "minimumQualifications": [
         "Expedite global partnerships, leverage scalable portals, and monetize visionary convergence",
         "Incentivize bricks-and-clicks users, optimize distributed technologies, and transition out-of-the-box ROI",
@@ -1942,7 +2089,12 @@
       "organization": "Vue and Me",
       "degree": "Associate",
       "jobType": "Part-time",
-      "locations": ["Columbus", "Oakland", "Marseille", "Buenos Aires"],
+      "locations": [
+        "Columbus",
+        "Oakland",
+        "Marseille",
+        "Buenos Aires"
+      ],
       "minimumQualifications": [
         "Synthesize e-business initiatives, benchmark turn-key partnerships, and repurpose magnetic eyeballs",
         "Deploy next-generation markets, innovate enterprise models, and revolutionize web-enabled systems",
@@ -1967,7 +2119,12 @@
       "organization": "Vue and a Half Men",
       "degree": "Master's",
       "jobType": "Temporary",
-      "locations": ["Bangkok", "Toulouse", "Delhi", "Bangalore"],
+      "locations": [
+        "Bangkok",
+        "Toulouse",
+        "Delhi",
+        "Bangalore"
+      ],
       "minimumQualifications": [
         "Strategize end-to-end schemas, optimize revolutionary deliverables, and e-enable cutting-edge initiatives",
         "Engage viral initiatives, exploit global e-commerce, and re-intermediate out-of-the-box ROI",
@@ -1992,7 +2149,12 @@
       "organization": "Et Vue Brute",
       "degree": "Ph.D.",
       "jobType": "Intern",
-      "locations": ["Frankfurt", "Medellin", "Las Vegas", "Washington DC"],
+      "locations": [
+        "Frankfurt",
+        "Medellin",
+        "Las Vegas",
+        "Washington DC"
+      ],
       "minimumQualifications": [
         "Expedite compelling markets, optimize cross-media metrics, and synthesize user-centric functionalities",
         "Grow integrated supply-chains, enhance wireless niches, and empower seamless convergence",
@@ -2017,7 +2179,12 @@
       "organization": "Point of Vue",
       "degree": "Bachelor's",
       "jobType": "Full-time",
-      "locations": ["Nashville", "Wellington", "Edinburgh", "Tel Aviv"],
+      "locations": [
+        "Nashville",
+        "Wellington",
+        "Edinburgh",
+        "Tel Aviv"
+      ],
       "minimumQualifications": [
         "Envisioneer wireless niches, enable integrated e-markets, and scale B2B functionalities",
         "Utilize efficient e-services, cultivate cutting-edge e-commerce, and seize 24/7 mindshare",
@@ -2043,7 +2210,11 @@
       "organization": "Vue and a Half Men",
       "degree": "Associate",
       "jobType": "Temporary",
-      "locations": ["Helsinki", "Bangalore", "Perth"],
+      "locations": [
+        "Helsinki",
+        "Bangalore",
+        "Perth"
+      ],
       "minimumQualifications": [
         "Syndicate efficient paradigms, expedite turn-key systems, and redefine collaborative mindshare",
         "Cultivate 24/7 eyeballs, synthesize efficient networks, and extend front-end schemas",
@@ -2100,7 +2271,12 @@
       "organization": "Vue Can Do It",
       "degree": "Associate",
       "jobType": "Part-time",
-      "locations": ["St Louis", "Medellin", "Raleigh-Durham", "Jacksonville"],
+      "locations": [
+        "St Louis",
+        "Medellin",
+        "Raleigh-Durham",
+        "Jacksonville"
+      ],
       "minimumQualifications": [
         "Disintermediate innovative eyeballs, engage extensible bandwidth, and drive ubiquitous partnerships",
         "Exploit innovative e-tailers, transition synergistic niches, and evolve turn-key e-commerce",
@@ -2125,7 +2301,11 @@
       "organization": "Et Vue Brute",
       "degree": "Master's",
       "jobType": "Temporary",
-      "locations": ["Fukuoka", "London", "Melbourne"],
+      "locations": [
+        "Fukuoka",
+        "London",
+        "Melbourne"
+      ],
       "minimumQualifications": [
         "Incubate 24/365 roi, grow web-enabled convergence, and engage front-end technologies",
         "Facilitate integrated interfaces, monetize wireless users, and revolutionize cutting-edge infrastructures",
@@ -2248,7 +2428,11 @@
       "organization": "Vue Can Do It",
       "degree": "Master's",
       "jobType": "Full-time",
-      "locations": ["Cologne", "San Diego", "Paris"],
+      "locations": [
+        "Cologne",
+        "San Diego",
+        "Paris"
+      ],
       "minimumQualifications": [
         "Reinvent 24/7 e-business, visualize holistic solutions, and deliver open-source relationships",
         "Brand cutting-edge models, enhance mission-critical supply-chains, and integrate revolutionary partnerships",
@@ -2297,7 +2481,11 @@
       "organization": "Point of Vue",
       "degree": "Bachelor's",
       "jobType": "Intern",
-      "locations": ["Vancouver", "Tokyo", "Washington DC"],
+      "locations": [
+        "Vancouver",
+        "Tokyo",
+        "Washington DC"
+      ],
       "minimumQualifications": [
         "Expedite extensible methodologies, orchestrate best-of-breed content, and empower innovative relationships",
         "Disintermediate bricks-and-clicks web services, productize best-of-breed architectures, and generate distributed content",
@@ -2478,7 +2666,12 @@
       "organization": "Point of Vue",
       "degree": "Pursuing Degree",
       "jobType": "Temporary",
-      "locations": ["Vancouver", "Cincinnati", "Bangkok", "São Paulo"],
+      "locations": [
+        "Vancouver",
+        "Cincinnati",
+        "Bangkok",
+        "São Paulo"
+      ],
       "minimumQualifications": [
         "E-enable strategic architectures, expedite 24/365 solutions, and seize visionary web-readiness",
         "Whiteboard user-centric portals, incubate killer solutions, and expedite customized content",
