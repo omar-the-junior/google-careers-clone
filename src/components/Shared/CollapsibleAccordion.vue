@@ -36,10 +36,7 @@ const caretIcon = computed(() =>
       <font-awesome-icon :icon="caretIcon" />
     </div>
 
-    <div
-      v-if="isOpen"
-      class="mt-5 w-full overflow-hidden transition-all duration-300 ease-in-out"
-    >
+    <div v-if="isOpen" class="mt-5 w-full">
       <slot>No content provided</slot>
     </div>
   </div>
