@@ -1,25 +1,25 @@
 <template>
-  <collapsible-accordion header="Organizations">
+  <collapsible-accordion header="Job Types">
     <div class="mt-5">
       <fieldset>
         <ul class="flex flex-row flex-wrap">
           <li
-            v-for="organization in uniqueOrganizations"
-            :key="organization"
+            v-for="jobType in uniqueJobTypes"
+            :key="jobType"
             class="h-8 w-1/2"
           >
             <input
-              :id="organization"
-              v-model="selectedOrganizations"
-              :value="organization"
+              :id="jobType"
+              v-model="selectedJobTypes"
+              :value="jobType"
               type="checkbox"
               class="mr-3"
-              @change="selectOrganization"
+              @change="selectJobType"
             />
             <label
-              :for="organization"
+              :for="jobType"
               class="cursor-pointer"
-              >{{ organization }}</label
+              >{{ jobType }}</label
             >
           </li>
         </ul>
@@ -36,27 +36,25 @@ import { useJobsStore } from '@/stores/jobs'
 import { useUserStore } from '@/stores/user'
 
 export default {
-  name: 'JobFiltersSidebarOrganizations',
+  name: 'JobFiltersSidebarJobTypes',
   components: {
     CollapsibleAccordion,
   },
   data() {
     return {
-      selectedOrganizations: [],
+      selectedJobTypes: [],
     }
   },
   computed: {
-    ...mapState(useJobsStore, [
-      'uniqueOrganizations',
-    ]),
+    ...mapState(useJobsStore, ['uniqueJobTypes']),
   },
   methods: {
     ...mapActions(useUserStore, [
-      'addSelectedOrganization',
+      'addSelectedJobTypes',
     ]),
-    selectOrganization() {
-      this.addSelectedOrganization(
-        this.selectedOrganizations
+    selectJobType() {
+      this.addSelectedJobTypes(
+        this.selectedJobTypes
       )
       this.$router.push({
         name: 'JobResults',

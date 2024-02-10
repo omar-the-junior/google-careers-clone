@@ -4,6 +4,7 @@ export const useUserStore = defineStore('user', {
   state: () => ({
     isLoggedIn: false,
     selectedOrganizations: [],
+    selectedJobTypes: [],
   }),
   actions: {
     login() {
@@ -11,6 +12,9 @@ export const useUserStore = defineStore('user', {
     },
     addSelectedOrganization(organizations) {
       this.selectedOrganizations = organizations
+    },
+    addSelectedJobTypes(jobTypes) {
+      this.selectedJobTypes = jobTypes
     },
   },
 })

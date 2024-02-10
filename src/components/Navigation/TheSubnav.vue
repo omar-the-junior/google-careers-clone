@@ -12,7 +12,7 @@
       />
       <span
         ><span class="text-brand-green-1">{{
-          filteredJobsByOrganizations.length
+          filteredJobs.length
         }}</span>
         jobs matched</span
       >
@@ -27,9 +27,7 @@ import { useJobsStore } from '@/stores/jobs'
 export default {
   name: 'TheSubnav',
   computed: {
-    ...mapState(useJobsStore, [
-      'filteredJobsByOrganizations',
-    ]),
+    ...mapState(useJobsStore, ['filteredJobs']),
     onJobResultsPage() {
       return this.$route.name === 'JobResults'
     },

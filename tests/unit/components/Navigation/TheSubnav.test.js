@@ -31,8 +31,9 @@ describe('TheSubnav', () => {
         renderTheSubnav('JobResults')
 
       const numberOfJobs = 16
-      jobsStore.filteredJobsByOrganizations =
-        Array(numberOfJobs).fill({})
+      jobsStore.filteredJobs = Array(
+        numberOfJobs
+      ).fill({})
 
       const jobCount =
         await screen.findByText(numberOfJobs)
@@ -46,8 +47,9 @@ describe('TheSubnav', () => {
         renderTheSubnav('Home')
       const numberOfJobs = 16
 
-      jobsStore.filteredJobsByOrganizations =
-        Array(numberOfJobs).fill({})
+      jobsStore.filteredJobs = Array(
+        numberOfJobs
+      ).fill({})
 
       const jobCount =
         screen.queryByText(numberOfJobs)

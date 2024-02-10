@@ -20,19 +20,49 @@ export const useJobsStore = defineStore('jobs', {
 
       return uniqueOrganizations
     },
-    filteredJobsByOrganizations(state) {
-      const userStore = useUserStore()
-
-      if (
-        !userStore.selectedOrganizations.length
-      ) {
-        return state.jobs
-      }
-      return state.jobs.filter((job) =>
-        userStore.selectedOrganizations.includes(
+    uniqueJobTypes(state) {
+      const uniqueJobTypes = new Set(
+        state.jobs.map((job) => job.jobType)
+      )
+      return uniqueJobTypes
+    },
+    includeJobByOrganization() {
+      return (job) => {
+        const userStore = useUserStore()
+        if (
+          !userStore.selectedOrganizations.length
+        ) {
+          return true
+        }
+        return userStore.selectedOrganizations.includes(
           job.organization
         )
-      )
+      }
+    },
+    includeJobByJobType() {
+      return (job) => {
+        const userStore = useUserStore()
+        if (!userStore.selectedJobTypes.length) {
+          return true
+        }
+        return userStore.selectedJobTypes.includes(
+          job.jobType
+        )
+      }
+    },
+    filteredJobs(state) {
+      const userStore = useUserStore()
+      let filteredJobs = state.jobs
+      if (userStore.selectedJobTypes.length)
+        filteredJobs = filteredJobs.filter(
+          this.includeJobByJobType
+        )
+      if (userStore.selectedOrganizations.length)
+        filteredJobs = filteredJobs.filter(
+          this.includeJobByOrganization
+        )
+
+      return filteredJobs
     },
   },
 })

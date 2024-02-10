@@ -20,6 +20,11 @@ describe('state', () => {
       []
     )
   })
+
+  it('stores job types that the user would like to filter the jobs by', () => {
+    const store = useUserStore()
+    expect(store.selectedJobTypes).toEqual([])
+  })
 })
 
 describe('actions', () => {
@@ -43,6 +48,20 @@ describe('actions', () => {
       expect(store.selectedOrganizations).toEqual(
         ['Organization 1', 'Organization 2']
       )
+    })
+  })
+
+  describe('addSelectedJobType', () => {
+    it('updates job types the user has chosen to filter jobs by', () => {
+      const store = useUserStore()
+      store.addSelectedJobTypes([
+        'Full Time',
+        'Part Time',
+      ])
+      expect(store.selectedJobTypes).toEqual([
+        'Full Time',
+        'Part Time',
+      ])
     })
   })
 })

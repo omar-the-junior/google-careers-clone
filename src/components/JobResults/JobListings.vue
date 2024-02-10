@@ -70,13 +70,11 @@ export default {
         : undefined
     },
     ...mapState(useJobsStore, {
-      filteredJobsByOrganizations:
-        'filteredJobsByOrganizations',
+      filteredJobs: 'filteredJobs',
       nextPage() {
         const nextPage = this.currentPage + 1
         const maxPage = Math.ceil(
-          this.filteredJobsByOrganizations
-            .length / 10
+          this.filteredJobs.length / 10
         )
         return nextPage <= maxPage
           ? nextPage
@@ -86,7 +84,7 @@ export default {
         const firstJobIndex =
           (this.currentPage - 1) * 10
         const lastJobIndex = this.currentPage * 10
-        return this.filteredJobsByOrganizations.slice(
+        return this.filteredJobs.slice(
           firstJobIndex,
           lastJobIndex
         )

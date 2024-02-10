@@ -17,17 +17,23 @@ describe('jobFiltersSidebarOrganization', () => {
       const pinia = createTestingPinia()
       const jobsStore = useJobsStore()
       const userStore = useUserStore()
+      const $router = {
+        push: vi.fn(),
+      }
 
       render(JobFiltersSidebarOrganizations, {
         global: {
           plugins: [pinia],
+          mocks: {
+            $router,
+          },
           stubs: {
             FontAwesomeIcon: true,
           },
         },
       })
 
-      return { jobsStore, userStore }
+      return { jobsStore, userStore, $router }
     }
 
   it('renders unique list of organizations from jobs', async () => {
@@ -58,13 +64,43 @@ describe('jobFiltersSidebarOrganization', () => {
     ])
   })
 
-  it('communicates that user has selected checkbox for organization', async () => {
-    const { jobsStore, userStore } =
+  describe('when user selects an organization checkbox', () => {
+    it('communicates that user has selected checkbox for organization', async () => {
+      const { jobsStore, userStore } =
+        renderJobsFiltersSidebarOrganizations()
+
+      jobsStore.uniqueOrganizations = new Set([
+        'google',
+        'meta',
+      ])
+
+      const button = screen.getByRole('button', {
+        name: /organizations/i,
+      })
+
+      await userEvent.click(button)
+
+      const googleCheckbox = screen.getByRole(
+        'checkbox',
+        {
+          name: /google/i,
+        }
+      )
+
+      await userEvent.click(googleCheckbox)
+
+      expect(
+        userStore.addSelectedOrganization
+      ).toHaveBeenCalledWith(['google'])
+    })
+  })
+
+  it('navigates user to job results page to see fresh batch of filtered jobs', async () => {
+    const { jobsStore, $router } =
       renderJobsFiltersSidebarOrganizations()
 
     jobsStore.uniqueOrganizations = new Set([
       'google',
-      'meta',
     ])
 
     const button = screen.getByRole('button', {
@@ -82,8 +118,8 @@ describe('jobFiltersSidebarOrganization', () => {
 
     await userEvent.click(googleCheckbox)
 
-    expect(
-      userStore.addSelectedOrganization
-    ).toHaveBeenCalledWith(['google'])
+    expect($router.push).toHaveBeenCalledWith({
+      name: 'JobResults',
+    })
   })
 })
