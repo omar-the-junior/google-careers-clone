@@ -1,9 +1,36 @@
+<script setup>
+import { useUserStore } from '@/stores/user'
+import ActionButton from '../Shared/ActionButton.vue'
+import ProfileImage from './ProfileImage.vue'
+import TheSubnav from './TheSubnav.vue'
+import { computed, ref } from 'vue'
+
+const userStore = useUserStore()
+
+const menuItems = ref([
+  { text: 'Teams', url: '/teams' },
+  { text: 'Locations', url: '/' },
+  { text: 'Life at Google Corp', url: '/' },
+  { text: 'How we hire', url: '/' },
+  { text: 'Students', url: '/' },
+  { text: 'Jobs', url: '/jobs/results' },
+])
+
+const isLoggedIn = computed(
+  () => userStore.isLoggedIn
+)
+const headerHightClass = computed(() => ({
+  'h-16': !isLoggedIn.value,
+  'h-32': isLoggedIn.value,
+}))
+</script>
+
 <template>
   <header
     :class="[
       'w-full',
       'text-sm',
-      headerHighetClass,
+      headerHightClass,
     ]"
   >
     <div
@@ -42,7 +69,7 @@
           <action-button
             v-else
             text="Sign in"
-            @click="login"
+            @click="userStore.login"
           />
         </div>
       </div>
@@ -51,44 +78,3 @@
     </div>
   </header>
 </template>
-
-<script>
-import { mapActions, mapState } from 'pinia'
-import { useUserStore } from '@/stores/user'
-import ActionButton from '../Shared/ActionButton.vue'
-import ProfileImage from './ProfileImage.vue'
-import TheSubnav from './TheSubnav.vue'
-export default {
-  name: 'MainNav',
-  components: {
-    ActionButton,
-    ProfileImage,
-    TheSubnav,
-  },
-  data() {
-    return {
-      menuItems: [
-        { text: 'Teams', url: '/teams' },
-        { text: 'Locations', url: '/' },
-        { text: 'Life at Google Corp', url: '/' },
-        { text: 'How we hire', url: '/' },
-        { text: 'Students', url: '/' },
-        { text: 'Jobs', url: '/jobs/results' },
-      ],
-    }
-  },
-  computed: {
-    ...mapState(useUserStore, ['isLoggedIn']),
-    // TODO: Find a better fix for this using only tailwind classes
-    headerHighetClass() {
-      return {
-        'h-16': !this.isLoggedIn,
-        'h-32': this.isLoggedIn,
-      }
-    },
-  },
-  methods: {
-    ...mapActions(useUserStore, ['login']),
-  },
-}
-</script>

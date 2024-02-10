@@ -1,3 +1,9 @@
+<script setup>
+import TheHeadline from './TheHeadline.vue'
+import JobSearchForm from './JobSearchForm.vue'
+import SpotLight from './SpotLight.vue'
+</script>
+
 <template>
   <main class="flex h-screen flex-col">
     <section
@@ -55,17 +61,3 @@
     </spot-light>
   </main>
 </template>
-
-<script>
-import TheHeadline from './TheHeadline.vue'
-import JobSearchForm from './JobSearchForm.vue'
-import SpotLight from './SpotLight.vue'
-export default {
-  name: 'TheHero',
-  components: {
-    TheHeadline,
-    JobSearchForm,
-    SpotLight,
-  },
-}
-</script>

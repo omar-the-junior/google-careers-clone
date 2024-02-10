@@ -1,3 +1,9 @@
+<script setup>
+import { ref } from 'vue'
+
+const imageLink = ref('/images/profile-pic.png')
+</script>
+
 <template>
   <img
     :src="imageLink"
@@ -5,14 +11,3 @@
     class="h-8 w-8 rounded-3xl object-contain"
   />
 </template>
-
-<script>
-export default {
-  name: 'ProfileImage',
-  data() {
-    return {
-      imageLink: '/images/profile-pic.png',
-    }
-  },
-}
-</script>

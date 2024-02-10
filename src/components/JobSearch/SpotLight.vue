@@ -1,3 +1,17 @@
+<script setup>
+import axios from 'axios'
+import { onMounted, ref } from 'vue'
+
+const spotlights = ref([])
+
+onMounted(async () => {
+  const response = await axios.get(
+    'http://localhost:3000/spotlights'
+  )
+  spotlights.value = response.data
+})
+</script>
+
 <template>
   <ul>
     <li
@@ -12,23 +26,3 @@
     </li>
   </ul>
 </template>
-
-<script>
-import axios from 'axios'
-
-export default {
-  name: 'SpotLight',
-  data() {
-    return {
-      spotlights: [],
-    }
-  },
-  async mounted() {
-    const response = await axios.get(
-      'http://localhost:3000/spotlights'
-    )
-
-    this.spotlights = response.data
-  },
-}
-</script>

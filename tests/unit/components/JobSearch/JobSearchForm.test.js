@@ -6,18 +6,19 @@ import {
 import userEvent from '@testing-library/user-event'
 
 import JobSearchForm from '@/components/JobSearch/JobSearchForm.vue'
+import { useRouter } from 'vue-router'
 
+vi.mock('vue-router')
 describe('JobSearchForm', () => {
   describe('when user submits form', () => {
     it("directs user to job results page with user's search parameters", async () => {
       const push = vi.fn()
+      useRouter.mockReturnValue({
+        push,
+      })
+
       render(JobSearchForm, {
         global: {
-          mocks: {
-            $router: {
-              push,
-            },
-          },
           stubs: {
             FontAwesomeIcon: true,
           },

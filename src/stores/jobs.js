@@ -6,7 +6,7 @@ export const useJobsStore = defineStore('jobs', {
     jobs: [],
   }),
   actions: {
-    async FETCH_JOBS() {
+    async fetchJobs() {
       const jobs = await getJobs()
 
       this.jobs = jobs

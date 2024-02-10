@@ -25,7 +25,7 @@ describe('actions', () => {
     setActivePinia(createPinia())
   })
 
-  describe('FETCH_JOBS', () => {
+  describe('fetchJobs', () => {
     it('makes API request and stores received jobs', async () => {
       const jobs = [
         { id: 1, title: 'Frontend Developer' },
@@ -37,7 +37,7 @@ describe('actions', () => {
 
       const store = useJobsStore()
 
-      await store.FETCH_JOBS()
+      await store.fetchJobs()
 
       expect(store.jobs).toEqual(jobs)
     })
