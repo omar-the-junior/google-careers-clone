@@ -1,16 +1,11 @@
-import {
-  render,
-  screen,
-} from '@testing-library/vue'
+import { render, screen } from '@testing-library/vue'
 
 import userEvent from '@testing-library/user-event'
 
 import CollapsibleAccordion from '@/components/Shared/CollapsibleAccordion.vue'
 
 describe('CollapsibleAccordion', () => {
-  const renderCollapsibleAccordion = async (
-    config = {}
-  ) => {
+  const renderCollapsibleAccordion = async (config = {}) => {
     render(CollapsibleAccordion, {
       global: {
         stubs: {
@@ -39,9 +34,7 @@ describe('CollapsibleAccordion', () => {
     })
 
     await userEvent.click(button)
-    expect(
-      screen.getByText('My nested child')
-    ).toBeInTheDocument()
+    expect(screen.getByText('My nested child')).toBeInTheDocument()
   })
 
   describe('when parent does not provide custom child content', () => {

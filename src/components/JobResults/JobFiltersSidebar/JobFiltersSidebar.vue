@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import ActionButton from '@/components/Shared/ActionButton.vue'
 import CollapsibleAccordion from '@/components/Shared/CollapsibleAccordion.vue'
 import JobFiltersSidebarCheckboxGroup from './JobFiltersSidebarCheckboxGroup.vue'
@@ -9,9 +9,7 @@ import { computed } from 'vue'
 const jobsStore = useJobsStore()
 const userStore = useUserStore()
 
-const uniqueJobTypes = computed(
-  () => jobsStore.uniqueJobTypes
-)
+const uniqueJobTypes = computed(() => jobsStore.uniqueJobTypes)
 const uniqueOrganizations = computed(
   () => jobsStore.uniqueOrganizations
 )
@@ -27,10 +25,7 @@ const uniqueOrganizations = computed(
           What do you want to do?
         </h3>
         <div class="flex items-center text-sm">
-          <action-button
-            text="Clear Filters"
-            type="secondary"
-          />
+          <action-button text="Clear Filters" type="secondary" />
         </div>
       </div>
 
@@ -43,9 +38,7 @@ const uniqueOrganizations = computed(
       <job-filters-sidebar-checkbox-group
         header="Organizations"
         :unique-values="uniqueOrganizations"
-        :action="
-          userStore.addSelectedOrganization
-        "
+        :action="userStore.addSelectedOrganization"
       />
     </section>
   </div>

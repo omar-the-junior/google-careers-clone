@@ -1,7 +1,4 @@
-import {
-  render,
-  screen,
-} from '@testing-library/vue'
+import { render, screen } from '@testing-library/vue'
 
 import userEvent from '@testing-library/user-event'
 
@@ -18,13 +15,8 @@ describe('TextInput', () => {
     const input = screen.getByRole('textbox')
 
     await userEvent.type(input, 'abc')
-    const messages =
-      emitted()['update:modelValue']
+    const messages = emitted()['update:modelValue']
 
-    expect(messages).toEqual([
-      ['a'],
-      ['ab'],
-      ['abc'],
-    ])
+    expect(messages).toEqual([['a'], ['ab'], ['abc']])
   })
 })

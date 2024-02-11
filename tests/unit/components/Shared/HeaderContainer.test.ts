@@ -1,7 +1,4 @@
-import {
-  render,
-  screen,
-} from '@testing-library/vue'
+import { render, screen } from '@testing-library/vue'
 
 import HeaderContainer from '@/components/Shared/HeaderContainer.vue'
 
@@ -13,9 +10,7 @@ describe('HeaderContainer', () => {
       },
     })
 
-    expect(
-      screen.getByText('my title')
-    ).toBeInTheDocument()
+    expect(screen.getByText('my title')).toBeInTheDocument()
   })
 
   it('allows parent component to provide subtitle content', () => {
@@ -25,8 +20,6 @@ describe('HeaderContainer', () => {
       },
     })
 
-    expect(
-      screen.getByText('my subtitle')
-    ).toBeInTheDocument()
+    expect(screen.getByText('my subtitle')).toBeInTheDocument()
   })
 })

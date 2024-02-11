@@ -1,11 +1,18 @@
-<script setup>
+<script setup lang="ts">
 import axios from 'axios'
 import { onMounted, ref } from 'vue'
 
-const spotlights = ref([])
+interface Spotlight {
+  id: number
+  img: string
+  title: string
+  description: string
+}
+
+const spotlights = ref<Spotlight[]>([])
 
 onMounted(async () => {
-  const response = await axios.get(
+  const response = await axios.get<Spotlight[]>(
     'http://localhost:3000/spotlights'
   )
   spotlights.value = response.data
@@ -14,10 +21,7 @@ onMounted(async () => {
 
 <template>
   <ul>
-    <li
-      v-for="spotlight in spotlights"
-      :key="spotlight.id"
-    >
+    <li v-for="spotlight in spotlights" :key="spotlight.id">
       <slot
         :img="spotlight.img"
         :title="spotlight.title"

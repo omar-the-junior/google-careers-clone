@@ -1,16 +1,14 @@
-<script setup>
-import { computed } from 'vue'
-
+<script setup lang="ts">
+import { computed, type PropType } from 'vue'
+import type { Job } from '@/api/types'
 const props = defineProps({
   job: {
-    type: Object,
+    type: Object as PropType<Job>,
     required: true,
   },
 })
 
-const jobPageLink = computed(
-  () => `/jobs/results/${props.job.id}`
-)
+const jobPageLink = computed(() => `/jobs/results/${props.job.id}`)
 </script>
 
 <template>
@@ -45,9 +43,7 @@ const jobPageLink = computed(
 
       <div class="px-8 py-4">
         <div>
-          <h3 class="mb-2 mt-1">
-            Qualifications:
-          </h3>
+          <h3 class="mb-2 mt-1">Qualifications:</h3>
           <div>
             <ul class="list-disc pl-8">
               <li
@@ -61,9 +57,7 @@ const jobPageLink = computed(
         </div>
 
         <div class="mt-2 text-center">
-          <router-link
-            :to="jobPageLink"
-            class="text-brand-blue-1"
+          <router-link :to="jobPageLink" class="text-brand-blue-1"
             >Expand</router-link
           >
         </div>

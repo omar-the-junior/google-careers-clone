@@ -1,19 +1,15 @@
-import {
-  render,
-  screen,
-} from '@testing-library/vue'
+import { render, screen } from '@testing-library/vue'
 
 import axios from 'axios'
 
 import SpotLight from '@/components/JobSearch/SpotLight.vue'
+import type { Mock } from 'vitest'
 
 vi.mock('axios')
-
+const axiosGetMock = axios.get as Mock
 describe('SpotLight', () => {
-  const mockSpotLightResponse = (
-    spotlight = {}
-  ) => {
-    axios.get.mockResolvedValue({
+  const mockSpotLightResponse = (spotlight = {}) => {
+    axiosGetMock.mockResolvedValue({
       data: [
         {
           id: 1,
@@ -51,8 +47,7 @@ describe('SpotLight', () => {
       },
     })
 
-    const text =
-      await screen.findByText('some title')
+    const text = await screen.findByText('some title')
     expect(text).toBeInTheDocument()
   })
   it('provides a title to descirption component', async () => {
@@ -67,9 +62,7 @@ describe('SpotLight', () => {
       },
     })
 
-    const text = await screen.findByText(
-      'some description'
-    )
+    const text = await screen.findByText('some description')
     expect(text).toBeInTheDocument()
   })
 })

@@ -1,7 +1,4 @@
-import {
-  render,
-  screen,
-} from '@testing-library/vue'
+import { render, screen } from '@testing-library/vue'
 
 import TheHeadline from '@/components/JobSearch/TheHeadline.vue'
 import { nextTick } from 'vue'
@@ -16,10 +13,9 @@ describe('TheHeadline', () => {
   it('displays introductory action verb', () => {
     render(TheHeadline)
 
-    const actionPhrase = screen.getByRole(
-      'heading',
-      { name: /build for everyone/i }
-    )
+    const actionPhrase = screen.getByRole('heading', {
+      name: /build for everyone/i,
+    })
     expect(actionPhrase).toBeInTheDocument()
   })
 
@@ -37,10 +33,9 @@ describe('TheHeadline', () => {
 
     // By using nextTick(), we ensure that our test waits for all updates to be applied before continuing.
     await nextTick()
-    const actionPhrase = screen.getByRole(
-      'heading',
-      { name: /create for everyone/i }
-    )
+    const actionPhrase = screen.getByRole('heading', {
+      name: /create for everyone/i,
+    })
     expect(actionPhrase).toBeInTheDocument()
   })
 

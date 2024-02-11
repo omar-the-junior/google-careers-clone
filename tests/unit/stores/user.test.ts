@@ -1,8 +1,5 @@
 import { useUserStore } from '@/stores/user'
-import {
-  createPinia,
-  setActivePinia,
-} from 'pinia'
+import { createPinia, setActivePinia } from 'pinia'
 
 beforeEach(() => {
   setActivePinia(createPinia())
@@ -16,9 +13,7 @@ describe('state', () => {
 
   it('stores organizations that the user would like to filter jobs by', () => {
     const store = useUserStore()
-    expect(store.selectedOrganizations).toEqual(
-      []
-    )
+    expect(store.selectedOrganizations).toEqual([])
   })
 
   it('stores job types that the user would like to filter the jobs by', () => {
@@ -45,19 +40,17 @@ describe('actions', () => {
         'Organization 2',
       ])
 
-      expect(store.selectedOrganizations).toEqual(
-        ['Organization 1', 'Organization 2']
-      )
+      expect(store.selectedOrganizations).toEqual([
+        'Organization 1',
+        'Organization 2',
+      ])
     })
   })
 
   describe('addSelectedJobType', () => {
     it('updates job types the user has chosen to filter jobs by', () => {
       const store = useUserStore()
-      store.addSelectedJobTypes([
-        'Full Time',
-        'Part Time',
-      ])
+      store.addSelectedJobTypes(['Full Time', 'Part Time'])
       expect(store.selectedJobTypes).toEqual([
         'Full Time',
         'Part Time',

@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import CollapsibleAccordion from '@/components/Shared/CollapsibleAccordion.vue'
 import { useRouter } from 'vue-router'
 import { ref } from 'vue'
@@ -9,7 +9,7 @@ const props = defineProps({
     required: true,
   },
   uniqueValues: {
-    type: Set,
+    type: Set<string>,
     required: true,
   },
   action: {
@@ -18,7 +18,7 @@ const props = defineProps({
   },
 })
 
-const selectedValues = ref([])
+const selectedValues = ref<string[]>([])
 const router = useRouter()
 
 const selectValue = () => {
@@ -48,11 +48,9 @@ const selectValue = () => {
               class="mr-3"
               @change="selectValue"
             />
-            <label
-              :for="value"
-              class="cursor-pointer"
-              >{{ value }}</label
-            >
+            <label :for="value" class="cursor-pointer">{{
+              value
+            }}</label>
           </li>
         </ul>
       </fieldset>

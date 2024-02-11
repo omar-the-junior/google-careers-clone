@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import { computed, ref } from 'vue'
 defineProps({
   header: {
@@ -14,16 +14,12 @@ const toggleAccordion = () => {
 }
 
 const caretIcon = computed(() =>
-  isOpen.value
-    ? ['fas', 'angle-up']
-    : ['fas', 'angle-down']
+  isOpen.value ? ['fas', 'angle-up'] : ['fas', 'angle-down']
 )
 </script>
 
 <template>
-  <div
-    class="border-b border-solid border-brand-gray-2 py-5"
-  >
+  <div class="border-b border-solid border-brand-gray-2 py-5">
     <div
       class="flex cursor-pointer flex-wrap items-center justify-between"
       role="button"

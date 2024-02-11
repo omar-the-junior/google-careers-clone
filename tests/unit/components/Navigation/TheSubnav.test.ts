@@ -1,13 +1,13 @@
-import {
-  render,
-  screen,
-} from '@testing-library/vue'
+import { render, screen } from '@testing-library/vue'
 
 import TheSubnav from '@/components/Navigation/TheSubnav.vue'
 import { createTestingPinia } from '@pinia/testing'
 import { useJobsStore } from '@/stores/jobs'
 import { useRoute } from 'vue-router'
+import type { Mock } from 'vitest'
 vi.mock('vue-router')
+
+const useRouteMock = useRoute as Mock
 describe('TheSubnav', () => {
   const renderTheSubnav = () => {
     const pinia = createTestingPinia()
@@ -24,36 +24,33 @@ describe('TheSubnav', () => {
   }
   describe('Whe user is on jobs page', () => {
     it('displays job count', async () => {
-      useRoute.mockReturnValue({
+      useRouteMock.mockReturnValue({
         name: 'JobResults',
       })
       const { jobsStore } = renderTheSubnav()
 
       const numberOfJobs = 16
-      jobsStore.filteredJobs = Array(
-        numberOfJobs
-      ).fill({})
 
-      const jobCount =
-        await screen.findByText(numberOfJobs)
+      // @ts-expect-error : Getter is readonly
+      jobsStore.filteredJobs = Array(numberOfJobs).fill({})
+
+      const jobCount = await screen.findByText(numberOfJobs)
 
       expect(jobCount).toBeInTheDocument()
     })
   })
   describe('When user is not on jobs page', () => {
     it('does not display job count', () => {
-      useRoute.mockReturnValue({
+      useRouteMock.mockReturnValue({
         name: 'Home',
       })
       const { jobsStore } = renderTheSubnav()
       const numberOfJobs = 16
 
-      jobsStore.filteredJobs = Array(
-        numberOfJobs
-      ).fill({})
+      // @ts-expect-error : Getter is readonly
+      jobsStore.filteredJobs = Array(numberOfJobs).fill({})
 
-      const jobCount =
-        screen.queryByText(numberOfJobs)
+      const jobCount = screen.queryByText(numberOfJobs)
 
       expect(jobCount).not.toBeInTheDocument()
     })

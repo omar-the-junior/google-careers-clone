@@ -1,8 +1,14 @@
 import getJobs from '@/api/getJobs'
 import { defineStore } from 'pinia'
 import { useUserStore } from './user'
+import type { Job } from '@/api/types'
+
+export interface JobsState {
+  jobs: Job[]
+}
+
 export const useJobsStore = defineStore('jobs', {
-  state: () => ({
+  state: (): JobsState => ({
     jobs: [],
   }),
   actions: {
@@ -27,11 +33,9 @@ export const useJobsStore = defineStore('jobs', {
       return uniqueJobTypes
     },
     includeJobByOrganization() {
-      return (job) => {
+      return (job: Job) => {
         const userStore = useUserStore()
-        if (
-          !userStore.selectedOrganizations.length
-        ) {
+        if (!userStore.selectedOrganizations.length) {
           return true
         }
         return userStore.selectedOrganizations.includes(
@@ -40,28 +44,25 @@ export const useJobsStore = defineStore('jobs', {
       }
     },
     includeJobByJobType() {
-      return (job) => {
+      return (job: Job) => {
         const userStore = useUserStore()
         if (!userStore.selectedJobTypes.length) {
           return true
         }
-        return userStore.selectedJobTypes.includes(
-          job.jobType
-        )
+        return userStore.selectedJobTypes.includes(job.jobType)
       }
     },
-    filteredJobs(state) {
+    filteredJobs(state): Job[] {
       const userStore = useUserStore()
       let filteredJobs = state.jobs
-      if (userStore.selectedJobTypes.length)
-        filteredJobs = filteredJobs.filter(
-          this.includeJobByJobType
-        )
-      if (userStore.selectedOrganizations.length)
+      if (userStore.selectedJobTypes.length) {
+        filteredJobs = filteredJobs.filter(this.includeJobByJobType)
+      }
+      if (userStore.selectedOrganizations.length) {
         filteredJobs = filteredJobs.filter(
           this.includeJobByOrganization
         )
-
+      }
       return filteredJobs
     },
   },

@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import { useUserStore } from '@/stores/user'
 import ActionButton from '../Shared/ActionButton.vue'
 import ProfileImage from './ProfileImage.vue'
@@ -16,9 +16,7 @@ const menuItems = ref([
   { text: 'Jobs', url: '/jobs/results' },
 ])
 
-const isLoggedIn = computed(
-  () => userStore.isLoggedIn
-)
+const isLoggedIn = computed(() => userStore.isLoggedIn)
 const headerHightClass = computed(() => ({
   'h-16': !isLoggedIn.value,
   'h-32': isLoggedIn.value,
@@ -26,16 +24,8 @@ const headerHightClass = computed(() => ({
 </script>
 
 <template>
-  <header
-    :class="[
-      'w-full',
-      'text-sm',
-      headerHightClass,
-    ]"
-  >
-    <div
-      class="fixed left-0 top-0 h-16 w-full bg-white"
-    >
+  <header :class="['w-full', 'text-sm', headerHightClass]">
+    <div class="fixed left-0 top-0 h-16 w-full bg-white">
       <div
         class="mx-auto flex h-full flex-nowrap border-b border-solid border-brand-gray-1 px-8"
       >
@@ -62,9 +52,7 @@ const headerHightClass = computed(() => ({
           </ul>
         </nav>
 
-        <div
-          class="ml-auto flex h-full items-center"
-        >
+        <div class="ml-auto flex h-full items-center">
           <profile-image v-if="isLoggedIn" />
           <action-button
             v-else

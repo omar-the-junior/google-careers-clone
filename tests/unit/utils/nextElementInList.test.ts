@@ -12,10 +12,7 @@ describe('nextElementInList', () => {
     it('returns the first element in the list', () => {
       const list = ['A', 'B', 'C', 'D', 'E']
       const value = 'E'
-      const result = nextElementInlist(
-        list,
-        value
-      )
+      const result = nextElementInlist(list, value)
       expect(result).toBe('A')
     })
   })

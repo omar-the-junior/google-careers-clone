@@ -1,7 +1,4 @@
-import {
-  render,
-  screen,
-} from '@testing-library/vue'
+import { render, screen } from '@testing-library/vue'
 
 import MainNav from '@/components/Navigation/MainNav.vue'
 import userEvent from '@testing-library/user-event'
@@ -9,10 +6,12 @@ import { RouterLinkStub } from '@vue/test-utils'
 import { createTestingPinia } from '@pinia/testing'
 import { useUserStore } from '@/stores/user'
 import { useRoute } from 'vue-router'
+import type { Mock } from 'vitest'
 
 vi.mock('vue-router')
+const useRouteMock = useRoute as Mock
 describe('MainNav', () => {
-  useRoute.mockReturnValue({
+  useRouteMock.mockReturnValue({
     name: 'Home',
   })
 
@@ -31,21 +30,17 @@ describe('MainNav', () => {
 
   it('Displays company name', () => {
     renderMainNav()
-    const companyName = screen.getByText(
-      /google careers/i
-    )
+    const companyName = screen.getByText(/google careers/i)
     expect(companyName).toBeInTheDocument()
   })
 
   it('Displays menu items for navigation', () => {
     renderMainNav()
-    const navigationMenuItems =
-      screen.getAllByRole('listitem')
-    const navigationMenuTexts =
-      navigationMenuItems.map(
-        // textContent gets the nested text content inside an element
-        (item) => item.textContent
-      )
+    const navigationMenuItems = screen.getAllByRole('listitem')
+    const navigationMenuTexts = navigationMenuItems.map(
+      // textContent gets the nested text content inside an element
+      (item) => item.textContent
+    )
     expect(navigationMenuTexts).toEqual([
       'Teams',
       'Locations',
@@ -62,24 +57,18 @@ describe('MainNav', () => {
 
       const userStore = useUserStore()
 
-      let profileImage = screen.queryByRole(
-        'img',
-        {
-          name: /user profile image/i,
-        }
-      )
+      let profileImage = screen.queryByRole('img', {
+        name: /user profile image/i,
+      })
       expect(profileImage).not.toBeInTheDocument()
 
-      const loginButton = screen.getByRole(
-        'button',
-        { name: /sign in/i }
-      )
+      const loginButton = screen.getByRole('button', {
+        name: /sign in/i,
+      })
       userStore.isLoggedIn = true
       await userEvent.click(loginButton)
 
-      expect(
-        userStore.login
-      ).toHaveBeenCalledTimes(1)
+      expect(userStore.login).toHaveBeenCalledTimes(1)
 
       profileImage = screen.getByRole('img', {
         name: /user profile image/i,
