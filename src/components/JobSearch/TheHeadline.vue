@@ -20,9 +20,31 @@ onBeforeUnmount(() => clearInterval(interval.value))
 
 <template>
   <section class="mb-16">
-    <h1 class="mb-14 text-8xl font-bold tracking-tighter">
-      <span :class="[actionClasses]">{{ action }}</span>
-      <br />
+    <h1 class="mb-14 text-8xl font-bold">
+      <div class="relative h-28 w-full overflow-hidden">
+        <Transition name="slide-up">
+          <span
+            v-if="action === 'Build'"
+            :class="[actionClasses, 'absolute']"
+            >Build</span
+          >
+          <span
+            v-else-if="action === 'Create'"
+            :class="[actionClasses, 'absolute']"
+            >Create</span
+          >
+          <span
+            v-else-if="action === 'Design'"
+            :class="[actionClasses, 'absolute']"
+            >Design</span
+          >
+          <span
+            v-else-if="action === 'Code'"
+            :class="[actionClasses, 'absolute']"
+            >Code</span
+          >
+        </Transition>
+      </div>
       for everyone
     </h1>
     <h2 class="text-3xl font-light">Find your next job at Google.</h2>
@@ -44,5 +66,18 @@ onBeforeUnmount(() => clearInterval(interval.value))
 
 .code {
   color: #d93025;
+}
+
+.slide-up-enter-active,
+.slide-up-leave-active {
+  transition: all 0.25s ease-out;
+}
+
+.slide-up-enter-from {
+  transform: translateY(100%);
+}
+
+.slide-up-leave-to {
+  transform: translateY(-100%);
 }
 </style>
