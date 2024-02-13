@@ -25,9 +25,9 @@ const headerHightClass = computed(() => ({
 
 <template>
   <header :class="['w-full', 'text-sm', headerHightClass]">
-    <div class="fixed left-0 top-0 h-16 w-full bg-white">
+    <div class="fixed left-0 top-0 z-50 h-16 w-full bg-white">
       <div
-        class="mx-auto flex h-full flex-nowrap border-b border-solid border-brand-gray-1 px-8"
+        class="rel z-50 mx-auto flex h-full flex-nowrap border-b border-solid border-brand-gray-1 px-8"
       >
         <router-link
           :to="{ name: 'Home' }"
