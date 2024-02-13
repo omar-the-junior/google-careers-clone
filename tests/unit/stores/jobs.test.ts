@@ -79,22 +79,6 @@ describe('actions', () => {
     })
 
     describe('includeJobByOrganization', () => {
-      describe('when the user has not selected any organizations', () => {
-        it('includes job', () => {
-          const userStore = useUserStore()
-          userStore.selectedOrganizations = []
-          const store = useJobsStore()
-
-          const job = createJob({
-            id: 1,
-            organization: 'Google',
-          })
-
-          const result = store.includeJobByOrganization(job)
-
-          expect(result).toBe(true)
-        })
-      })
       it('identifies if job is associated with the selected organizations', () => {
         const userStore = useUserStore()
         userStore.selectedOrganizations = ['Google', 'Meta']
@@ -112,22 +96,6 @@ describe('actions', () => {
     })
 
     describe('includeJobByDegree', () => {
-      describe('when the user has not selected any job types', () => {
-        it('includes job', () => {
-          const userStore = useUserStore()
-          userStore.selectedJobTypes = []
-          const store = useJobsStore()
-
-          const job = createJob({
-            id: 1,
-            jobType: 'Full Time',
-          })
-
-          const result = store.includeJobByJobType(job)
-
-          expect(result).toBe(true)
-        })
-      })
       it('identifies if job is associated with the selected job types', () => {
         const userStore = useUserStore()
         userStore.selectedJobTypes = ['Full Time', 'Part Time']
@@ -145,19 +113,6 @@ describe('actions', () => {
     })
 
     describe('includeJobByJobType', () => {
-      describe('when the user has not selected any degrees', () => {
-        it('includes job', () => {
-          const userStore = useUserStore()
-          userStore.selectedDegrees = []
-          const store = useJobsStore()
-
-          const job = createJob()
-
-          const result = store.includeJobByDegree(job)
-
-          expect(result).toBe(true)
-        })
-      })
       it('identifies if job is associated with the given degrees', () => {
         const userStore = useUserStore()
         userStore.selectedDegrees = ["Master's"]
@@ -170,6 +125,29 @@ describe('actions', () => {
 
         const result = store.includeJobByDegree(job)
 
+        expect(result).toBe(true)
+      })
+    })
+
+    describe('includeJobBySkill', () => {
+      it("identifies if job matches user's skill", () => {
+        const userStore = useUserStore()
+        userStore.skillsSearchTerm = 'vue'
+        const store = useJobsStore()
+        const job = createJob({ title: 'vue developer' })
+
+        const result = store.includeJobBySkill(job)
+
+        expect(result).toBe(true)
+      })
+
+      it('handles inconsistent character casing', () => {
+        const userStore = useUserStore()
+        userStore.skillsSearchTerm = 'vuE'
+        const store = useJobsStore()
+        const job = createJob({ title: 'Vue Developer' })
+
+        const result = store.includeJobBySkill(job)
         expect(result).toBe(true)
       })
     })

@@ -35,9 +35,6 @@ export const useJobsStore = defineStore('jobs', {
     includeJobByOrganization() {
       return (job: Job) => {
         const userStore = useUserStore()
-        if (!userStore.selectedOrganizations.length) {
-          return true
-        }
         return userStore.selectedOrganizations.includes(
           job.organization
         )
@@ -46,19 +43,21 @@ export const useJobsStore = defineStore('jobs', {
     includeJobByJobType() {
       return (job: Job) => {
         const userStore = useUserStore()
-        if (!userStore.selectedJobTypes.length) {
-          return true
-        }
         return userStore.selectedJobTypes.includes(job.jobType)
       }
     },
     includeJobByDegree() {
       return (job: Job) => {
         const userStore = useUserStore()
-        if (!userStore.selectedDegrees.length) {
-          return true
-        }
         return userStore.selectedDegrees.includes(job.degree)
+      }
+    },
+    includeJobBySkill() {
+      return (job: Job) => {
+        const userStore = useUserStore()
+        return job.title
+          .toLowerCase()
+          .includes(userStore.skillsSearchTerm.toLowerCase().trim())
       }
     },
     filteredJobs(state): Job[] {
@@ -74,6 +73,9 @@ export const useJobsStore = defineStore('jobs', {
       }
       if (userStore.selectedDegrees.length) {
         filteredJobs = filteredJobs.filter(this.includeJobByDegree)
+      }
+      if (userStore.skillsSearchTerm.length) {
+        filteredJobs = filteredJobs.filter(this.includeJobBySkill)
       }
       return filteredJobs
     },

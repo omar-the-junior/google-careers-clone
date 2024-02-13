@@ -2083,12 +2083,7 @@
       "organization": "Point of Vue",
       "degree": "Bachelor's",
       "jobType": "Full-time",
-      "locations": [
-        "Nashville",
-        "Wellington",
-        "Edinburgh",
-        "Tel Aviv"
-      ],
+      "locations": ["Nashville", "Wellington", "Edinburgh"],
       "minimumQualifications": [
         "Envisioneer wireless niches, enable integrated e-markets, and scale B2B functionalities",
         "Utilize efficient e-services, cultivate cutting-edge e-commerce, and seize 24/7 mindshare",
@@ -2251,7 +2246,7 @@
       "organization": "Vue and Me",
       "degree": "Associate",
       "jobType": "Part-time",
-      "locations": ["Tel Aviv"],
+      "locations": ["new cairo"],
       "minimumQualifications": [
         "Visualize efficient convergence, target turn-key web services, and syndicate turn-key web services",
         "Synthesize transparent web-readiness, reinvent viral relationships, and reinvent dynamic bandwidth",

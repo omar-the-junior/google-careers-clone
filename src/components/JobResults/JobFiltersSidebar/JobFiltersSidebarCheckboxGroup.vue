@@ -1,15 +1,14 @@
 <script setup lang="ts">
-import CollapsibleAccordion from '@/components/Shared/CollapsibleAccordion.vue'
 import { useRouter } from 'vue-router'
-import { ref } from 'vue'
+import { computed } from 'vue'
 
 const props = defineProps({
-  header: {
-    type: String,
-    required: true,
-  },
   uniqueValues: {
     type: Set<string>,
+    required: true,
+  },
+  selectedItems: {
+    type: Array<string>,
     required: true,
   },
   action: {
@@ -18,7 +17,14 @@ const props = defineProps({
   },
 })
 
-const selectedValues = ref<string[]>([])
+const selectedValues = computed<string[]>({
+  get() {
+    return props.selectedItems
+  },
+  set(newValue) {
+    props.action(newValue)
+  },
+})
 const router = useRouter()
 
 const selectValue = () => {
@@ -31,29 +37,27 @@ const selectValue = () => {
 </script>
 
 <template>
-  <collapsible-accordion :header="header">
-    <div class="mt-5">
-      <fieldset>
-        <ul class="flex flex-row flex-wrap">
-          <li
-            v-for="value in uniqueValues"
-            :key="value"
-            class="h-8 w-1/2"
-          >
-            <input
-              :id="value"
-              v-model="selectedValues"
-              :value="value"
-              type="checkbox"
-              class="mr-3"
-              @change="selectValue"
-            />
-            <label :for="value" class="cursor-pointer">{{
-              value
-            }}</label>
-          </li>
-        </ul>
-      </fieldset>
-    </div>
-  </collapsible-accordion>
+  <div class="mt-5">
+    <fieldset>
+      <ul class="flex flex-row flex-wrap">
+        <li
+          v-for="value in uniqueValues"
+          :key="value"
+          class="h-8 w-1/2"
+        >
+          <input
+            :id="value"
+            v-model="selectedValues"
+            :value="value"
+            type="checkbox"
+            class="mr-3"
+            @change="selectValue"
+          />
+          <label :for="value" class="cursor-pointer">{{
+            value
+          }}</label>
+        </li>
+      </ul>
+    </fieldset>
+  </div>
 </template>

@@ -14,13 +14,13 @@ vi.mock('vue-router')
 const useRouterMock = useRouter as Mock
 describe('jobFiltersSidebarCheckboxGroup', () => {
   interface Props {
-    header: string
+    selectedItems: Array<string>
     uniqueValues: Set<string>
     action: Function
   }
 
   const createProps = (props: Partial<Props> = {}) => ({
-    header: 'Some header',
+    selectedItems: ['item1', 'item2', 'item3'],
     uniqueValues: new Set(['a', 'b', 'c']),
     action: vi.fn(),
     ...props,
@@ -42,16 +42,10 @@ describe('jobFiltersSidebarCheckboxGroup', () => {
 
   it('renders unique list of job types from jobs', async () => {
     const props = createProps({
-      header: 'job types',
       uniqueValues: new Set(['Full Time', 'Part Time']),
     })
     renderJobsFiltersSidebarCheckboxGroup(props)
 
-    const button = screen.getByRole('button', {
-      name: /job types/i,
-    })
-
-    await userEvent.click(button)
     const jobTypesListItems = screen.getAllByRole('listitem')
 
     const jobTypes = jobTypesListItems.map((node) => node.textContent)
@@ -64,17 +58,11 @@ describe('jobFiltersSidebarCheckboxGroup', () => {
       useRouterMock.mockReturnValue({ push: vi.fn() })
       const action = vi.fn()
       const props = createProps({
-        header: 'job types',
+        selectedItems: ['Full Time'],
         uniqueValues: new Set(['Full Time', 'Part Time']),
         action,
       })
       renderJobsFiltersSidebarCheckboxGroup(props)
-
-      const button = screen.getByRole('button', {
-        name: /job types/i,
-      })
-
-      await userEvent.click(button)
 
       const fullTimeCheckbox = screen.getByRole('checkbox', {
         name: /full time/i,
@@ -91,17 +79,10 @@ describe('jobFiltersSidebarCheckboxGroup', () => {
       })
 
       const props = createProps({
-        header: 'job types',
         uniqueValues: new Set(['Full Time', 'Part Time']),
       })
 
       renderJobsFiltersSidebarCheckboxGroup(props)
-
-      const button = screen.getByRole('button', {
-        name: /job types/i,
-      })
-
-      await userEvent.click(button)
 
       const fullTimeCheckbox = screen.getByRole('checkbox', {
         name: /full time/i,

@@ -1,11 +1,15 @@
 <script setup lang="ts">
+import { computed, onMounted } from 'vue'
+
 import ActionButton from '@/components/Shared/ActionButton.vue'
-import CollapsibleAccordion from '@/components/Shared/CollapsibleAccordion.vue'
 import JobFiltersSidebarCheckboxGroup from './JobFiltersSidebarCheckboxGroup.vue'
+import CollapsibleAccordion from '@/components/Shared/CollapsibleAccordion.vue'
+import JobFiltersSidebarSkills from './JobFiltersSidebarSkills.vue'
+
 import { useJobsStore } from '@/stores/jobs'
 import { useUserStore } from '@/stores/user'
-import { computed } from 'vue'
 import { useDegreesStore } from '@/stores/degrees'
+import { useRoute } from 'vue-router'
 
 const jobsStore = useJobsStore()
 const userStore = useUserStore()
@@ -16,6 +20,13 @@ const uniqueOrganizations = computed(
   () => jobsStore.uniqueOrganizations
 )
 const uniqueDegrees = computed(() => degreesStore.uniqueDegrees)
+
+const route = useRoute()
+
+onMounted(() => {
+  const role = (route.query.role as string) || ''
+  userStore.updateSkillsSearchTerm(role)
+})
 </script>
 
 <template>
@@ -28,24 +39,38 @@ const uniqueDegrees = computed(() => degreesStore.uniqueDegrees)
           What do you want to do?
         </h3>
         <div class="flex items-center text-sm">
-          <action-button text="Clear Filters" type="secondary" />
+          <action-button
+            text="Clear Filters"
+            type="secondary"
+            @click="userStore.clearUserJobFilterSelections"
+          />
         </div>
       </div>
-      <job-filters-sidebar-checkbox-group
-        header="Degree"
-        :unique-values="uniqueDegrees"
-        :action="userStore.addSelectedDegrees"
-      />
-      <job-filters-sidebar-checkbox-group
-        header="Job Types"
-        :unique-values="uniqueJobTypes"
-        :action="userStore.addSelectedJobTypes"
-      />
-      <job-filters-sidebar-checkbox-group
-        header="Organizations"
-        :unique-values="uniqueOrganizations"
-        :action="userStore.addSelectedOrganization"
-      />
+
+      <job-filters-sidebar-skills />
+      <collapsible-accordion header="Degree">
+        <job-filters-sidebar-checkbox-group
+          :selected-items="userStore.selectedDegrees"
+          :unique-values="uniqueDegrees"
+          :action="userStore.addSelectedDegrees"
+        />
+      </collapsible-accordion>
+
+      <collapsible-accordion header="Job types">
+        <job-filters-sidebar-checkbox-group
+          :selected-items="userStore.selectedJobTypes"
+          :unique-values="uniqueJobTypes"
+          :action="userStore.addSelectedJobTypes"
+        />
+      </collapsible-accordion>
+
+      <collapsible-accordion header="Organizations">
+        <job-filters-sidebar-checkbox-group
+          :selected-items="userStore.selectedOrganizations"
+          :unique-values="uniqueOrganizations"
+          :action="userStore.addSelectedOrganization"
+        />
+      </collapsible-accordion>
     </section>
   </div>
 </template>
