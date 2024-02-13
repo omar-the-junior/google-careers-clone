@@ -3,12 +3,16 @@ import JobListing from './JobListing.vue'
 import { computed, onMounted } from 'vue'
 
 import { useJobsStore } from '@/stores/jobs'
+import { useDegreesStore } from '@/stores/degrees'
+
 import { useRoute } from 'vue-router'
+
 import usePreviousAndNextPages from '@/composables/usePreviousAndNextPages'
 
 const route = useRoute()
 
 const jobsStore = useJobsStore()
+const degreesStore = useDegreesStore()
 
 const filteredJobs = computed(() => jobsStore.filteredJobs)
 
@@ -24,10 +28,8 @@ const { nextPage, previousPage } = usePreviousAndNextPages(
   currentPage,
   maxPage
 )
-
-onMounted(async () => {
-  await jobsStore.fetchJobs()
-})
+onMounted(degreesStore.fetchDegrees)
+onMounted(jobsStore.fetchJobs)
 
 const displayJobs = computed(() => {
   const firstJobIndex = (currentPage.value - 1) * 10

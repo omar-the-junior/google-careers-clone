@@ -5,14 +5,17 @@ import JobFiltersSidebarCheckboxGroup from './JobFiltersSidebarCheckboxGroup.vue
 import { useJobsStore } from '@/stores/jobs'
 import { useUserStore } from '@/stores/user'
 import { computed } from 'vue'
+import { useDegreesStore } from '@/stores/degrees'
 
 const jobsStore = useJobsStore()
 const userStore = useUserStore()
+const degreesStore = useDegreesStore()
 
 const uniqueJobTypes = computed(() => jobsStore.uniqueJobTypes)
 const uniqueOrganizations = computed(
   () => jobsStore.uniqueOrganizations
 )
+const uniqueDegrees = computed(() => degreesStore.uniqueDegrees)
 </script>
 
 <template>
@@ -28,8 +31,11 @@ const uniqueOrganizations = computed(
           <action-button text="Clear Filters" type="secondary" />
         </div>
       </div>
-
-      <collapsible-accordion header="Degree" />
+      <job-filters-sidebar-checkbox-group
+        header="Degree"
+        :unique-values="uniqueDegrees"
+        :action="userStore.addSelectedDegrees"
+      />
       <job-filters-sidebar-checkbox-group
         header="Job Types"
         :unique-values="uniqueJobTypes"

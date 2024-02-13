@@ -6,6 +6,7 @@ import { createTestingPinia } from '@pinia/testing'
 import { useJobsStore } from '@/stores/jobs'
 import { useRoute } from 'vue-router'
 import type { Mock } from 'vitest'
+import { useDegreesStore } from '@/stores/degrees'
 
 vi.mock('axios')
 vi.mock('vue-router')
@@ -15,6 +16,7 @@ describe('JobListings', () => {
   const renderJobListings = () => {
     const pinia = createTestingPinia()
     const jobsStore = useJobsStore()
+    const degreesStore = useDegreesStore()
 
     // @ts-expect-error
     jobsStore.filteredJobs = Array(15).fill({})
@@ -28,13 +30,20 @@ describe('JobListings', () => {
       },
     })
 
-    return { jobsStore }
+    return { jobsStore, degreesStore }
   }
+
   it('fetches jobs', () => {
     useRouteMock.mockReturnValue({ query: {} })
     const { jobsStore } = renderJobListings()
 
     expect(jobsStore.fetchJobs).toHaveBeenCalled()
+  })
+  it('fetches degrees', () => {
+    useRouteMock.mockReturnValue({ query: {} })
+    const { degreesStore } = renderJobListings()
+
+    expect(degreesStore.fetchDegrees).toHaveBeenCalled()
   })
 
   it('displays maximum of 10 jobs', async () => {

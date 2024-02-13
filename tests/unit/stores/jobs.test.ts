@@ -111,7 +111,7 @@ describe('actions', () => {
       })
     })
 
-    describe('includeJobByJobType', () => {
+    describe('includeJobByDegree', () => {
       describe('when the user has not selected any job types', () => {
         it('includes job', () => {
           const userStore = useUserStore()
@@ -139,6 +139,36 @@ describe('actions', () => {
         })
 
         const result = store.includeJobByJobType(job)
+
+        expect(result).toBe(true)
+      })
+    })
+
+    describe('includeJobByJobType', () => {
+      describe('when the user has not selected any degrees', () => {
+        it('includes job', () => {
+          const userStore = useUserStore()
+          userStore.selectedDegrees = []
+          const store = useJobsStore()
+
+          const job = createJob()
+
+          const result = store.includeJobByDegree(job)
+
+          expect(result).toBe(true)
+        })
+      })
+      it('identifies if job is associated with the given degrees', () => {
+        const userStore = useUserStore()
+        userStore.selectedDegrees = ["Master's"]
+        const store = useJobsStore()
+
+        const job = createJob({
+          id: 1,
+          degree: "Master's",
+        })
+
+        const result = store.includeJobByDegree(job)
 
         expect(result).toBe(true)
       })
